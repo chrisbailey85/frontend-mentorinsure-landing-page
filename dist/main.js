@@ -8,6 +8,7 @@ const navLinks = document.querySelectorAll('.nav-list-link');
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     nav.classList.toggle('open');
+
 })
 
 navLinks.forEach(link => link.addEventListener('click', () => {
@@ -15,3 +16,4 @@ navLinks.forEach(link => link.addEventListener('click', () => {
     nav.classList.toggle('open');
 }
 ))
+

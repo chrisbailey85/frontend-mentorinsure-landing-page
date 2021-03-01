@@ -18,9 +18,8 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
-  font-family: $heading-font;
   font-weight: 400;
-
+  z-index: 1000;
   nav {
     background-color: $Very-Dark-Violet;
     position: absolute;
@@ -36,7 +35,7 @@ header {
       content: "";
       display: block;
       height: 218px;
-      width: 375px;
+      width: 100%;
       background-image: url("../images/bg-pattern-mobile-nav.svg");
       background-size: cover;
       background-repeat: no-repeat;
@@ -59,6 +58,8 @@ header {
         color: #fff;
         text-transform: uppercase;
         letter-spacing: 3px;
+        font-family: $body-font;
+        font-weight: 700;
       }
     }
   }
@@ -139,7 +140,6 @@ main {
 .banner {
   margin-bottom: 8rem;
   position: relative;
-  z-index: -1;
   &-image {
     height: 451px;
     width: 100%;
@@ -154,10 +154,10 @@ main {
     background-color: $Dark-Violet;
     color: #fff;
     text-align: center;
-    height: 300px;
+    height: 400px;
     width: 100%;
+    z-index: 1;
     @include flexCenter(column, space-around);
-    z-index: -1;
     h1 {
       font-size: 2rem;
       font-weight: 400;
@@ -173,6 +173,8 @@ main {
       text-decoration: none;
       border: 2px #fff solid;
       padding: 0.5rem 1rem;
+      z-index: 2;
+      transition: background-color 0.3s ease-in-out;
     }
 
     &::before {
@@ -184,6 +186,7 @@ main {
       left: 0;
       background-image: url("../images/bg-pattern-intro-left-mobile.svg");
       background-repeat: no-repeat;
+      z-index: -1;
     }
     &::after {
       content: "";
@@ -194,6 +197,7 @@ main {
       right: 0;
       background-image: url("../images/bg-pattern-intro-right-mobile.svg");
       background-repeat: no-repeat;
+      z-index: -1;
     }
   }
 }
@@ -239,7 +243,6 @@ main {
   @include flexCenter(column, center);
   padding: 2rem;
   color: #fff;
-  z-index: -1;
   h1 {
     font-size: 1.8rem;
     text-align: center;
@@ -255,6 +258,7 @@ main {
     font-family: $heading-font;
     font-weight: 400;
     margin: 2rem 0 0;
+    transition: background-color 0.3s ease-in-out;
   }
 
   &::before {
@@ -273,7 +277,7 @@ main {
   background-color: $Very-Light-Gray;
   padding-top: 100px;
   position: relative;
-  z-index: -2;
+  z-index: 1;
   text-transform: uppercase;
   letter-spacing: 1px;
   &::before {
@@ -284,7 +288,7 @@ main {
     top: 0;
     left: 0;
     height: 173px;
-    width: 374px;
+    width: 100%;
     z-index: -1;
   }
   .footer-header {
@@ -296,7 +300,10 @@ main {
     .social-media-links {
       margin: 1rem 0;
       a {
+        font-size: 1.3rem;
+        color: #837d88;
         margin: 0 5px;
+        transition: color 0.3s ease-in;
       }
     }
   }
@@ -346,7 +353,6 @@ main {
       top: 0;
       width: 60%;
       height: 0;
-      z-index: 100;
       transform: scale(1, 1);
       display: flex;
       align-items: center;
@@ -366,14 +372,15 @@ main {
           color: $Dark-Violet;
           opacity: 0.5;
           letter-spacing: 3px;
-          font-size: 0.6rem;
-          font-weight: 400;
+          font-size: 1rem;
         }
         &:last-child {
           border: 2px solid $Dark-Violet;
           margin-right: 0;
+          transition: background-color 0.3s ease-in-out;
           .nav-list-link {
             opacity: 1;
+            font-weight: 700;
           }
         }
       }
@@ -385,7 +392,6 @@ main {
     background: linear-gradient($Dark-Violet 90% 70%, #fff 30% 100%);
     margin-bottom: 8rem;
     position: relative;
-    z-index: -1;
     height: 100vh;
     &::before {
       content: "";
@@ -472,6 +478,29 @@ main {
     }
   }
 
+  .how-we-work {
+    @include flexCenter(row, space-between);
+    height: 250px;
+    z-index: 1;
+    h1 {
+      font-size: 3rem;
+      width: 50%;
+      padding: 0 2rem;
+      text-align: left;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      background-image: url("../images/bg-pattern-how-we-work-desktop.svg");
+      width: 434px;
+      height: 250px;
+      background-repeat: no-repeat;
+      top: 0;
+      right: 0;
+      z-index: -1;
+    }
+  }
+
   .footer {
     .footer-header {
       flex-direction: row;
@@ -485,13 +514,13 @@ main {
     }
     &::before {
       content: "";
-      background-image: url("../images/bg-pattern-footer-mobile.svg");
+      background-image: url("../images/bg-pattern-footer-desktop.svg");
       background-repeat: no-repeat;
       position: absolute;
       top: 0;
       left: 0;
-      height: 173px;
-      width: 374px;
+      height: 231px;
+      width: 528px;
       z-index: -1;
     }
     &-line {
@@ -525,7 +554,7 @@ main {
           color: $Dark-Violet;
           opacity: 0.5;
           letter-spacing: 3px;
-          font-size: 0.8rem;
+          font-size: 1rem;
           font-weight: 400;
         }
         &:last-child {
@@ -548,6 +577,52 @@ main {
     }
     &-line {
       left: 200px;
+    }
+  }
+}
+@media (pointer: fine) {
+  header {
+    nav {
+      .nav-list-item {
+        .nav-list-link:hover {
+          opacity: 1;
+        }
+        &:last-child:hover {
+          border: 2px solid $Very-Dark-Violet;
+          background-color: $Very-Dark-Violet;
+          margin-right: 0;
+          .nav-list-link {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+  .banner {
+    &-content {
+      a:hover {
+        background-color: #fff;
+        color: $Dark-Violet;
+      }
+    }
+  }
+  .how-we-work {
+    a:hover {
+      background-color: #fff;
+      color: $Dark-Violet;
+    }
+  }
+
+  .footer {
+    .social-media-links {
+      a:hover {
+        color: $Dark-Violet;
+      }
+    }
+    &-links {
+      a:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
